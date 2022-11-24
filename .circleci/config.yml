@@ -5,11 +5,14 @@ orbs:
 
 jobs:
   aws-oidc:
-    executor: aws-cli/default
+    machine:
+      image: ubuntu-2004:current
     steps:
-      - run: aws --version
+      - aws-cli/assume-role-with-web-identity:
+          role-arn: ${AWS_IAM_ROLE_ARN}
 
 workflows:
   oidc:
     jobs:
-      - aws-oidc
+      - aws-oidc:
+          context: aws
