@@ -10,6 +10,7 @@ jobs:
     steps:
       - aws-cli/assume-role-with-web-identity:
           role-arn: ${AWS_IAM_ROLE_ARN}
+      - run: aws s3 ls s3://oidc-example
 
 workflows:
   oidc:
