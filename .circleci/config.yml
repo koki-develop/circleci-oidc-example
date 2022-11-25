@@ -6,7 +6,7 @@ orbs:
 jobs:
   aws-oidc:
     machine:
-      image: ubuntu-2004:current
+      image: ubuntu-2204:current
     steps:
       - aws-cli/assume-role-with-web-identity:
           role-arn: ${AWS_IAM_ROLE_ARN}
